@@ -1,0 +1,17 @@
+<h3><%= @district.name %></h3>
+<p><%= @district.description %></p>
+
+<hr>
+<h2>Create Comment</h2>
+<% @comments.each do |comment| %>
+	<b><%= comment.created_at.strftime("%b %y, %Y, %M hrs %I mins") %>:</b>
+	<%= comment.body %><br>
+<% end %>
+<hr>
+<%= form_with model: [@country, @district, @comment] do |f| %>
+	<%= f.text_field :body %>
+	<%= f.submit %>
+<% end %>
+
+<hr>
+<%= link_to "Home Page", root_path %>

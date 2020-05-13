@@ -1,0 +1,19 @@
+<h2><%= @country.name %></h2>
+<hr>
+<div>
+	<h3>Districts</h3>
+	<% @districts.each do |district| %>
+		<%= link_to district.name,country_district_path(@country, district) %><br>
+	<% end %>
+<hr>
+	<%= form_with model: [@country, @district] do |f| %>
+		<h4>Create districts here</h4>
+		<%= f.label :name %>
+		<%= f.text_field :name %><br>
+		<%= f.label :description %>
+		<%= f.text_field :description %><br>
+		<%= f.submit %>
+	<% end %>
+</div>
+<hr>
+<%= link_to "Back", countries_path  %>

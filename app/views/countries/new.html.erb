@@ -1,0 +1,9 @@
+<h3>Create New Country</h3>
+
+<%= form_with model:  @country do |f| %>
+	<%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit  %>    
+<% end %>
+<hr>
+<%= link_to "Back", countries_path %>
